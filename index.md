@@ -1,10 +1,4 @@
 ---
-published: true
-layout: index
-
----
-
----
 layout: index
 ---
 
@@ -194,3 +188,4 @@ It accepts the following paramaters:
 | fields | indicates wich fields to `include` or `exclude` for each item. It can be used to get a partial field. The default field depends on the entity type. See below for more details. | array of field names to `include` or `exclude` |
 | query | this is the main parameter to search for particular items. It's a classic search query which accepts an extended syntax. The default is no query. See below for more details. | object |
 | filter | this allows to filter the results, it can be a simple filter or a logical combination of filters. The default filter depends on the entity type is overriden when the filter parameter is present. | object |
+
