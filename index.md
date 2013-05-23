@@ -112,14 +112,14 @@ Currently 3 methods are defined.
 
 The last one is not a method per se, but follows a similar pattern and allows to get the data for a particular entity item.
 
-***Only the HTTP method GET is allowed.***
+> **Only the HTTP method GET is allowed.**
 
 
 ### 1. info
 
 This method returns information about the entity, mainly fields definition.
 
-***This method doesn't accept parameters.***
+> **This method doesn't accept parameters.**
 
 Example:
 
@@ -138,10 +138,6 @@ curl -XGET 'http://api.rwdev.org/v0/country/info'
 				"id": {
 					"type": "number",
 					"sortable": true
-				},
-				"entity": {
-					"type": "string",
-					"not_searchable": true
 				},
 				"name": {
 					"type": "string",
@@ -183,5 +179,18 @@ The result is a list of properties for each field.
 | **sortable**       | indicates the field can be used to sort the the results | `true` or non present |
 | **not_searchable** | indicates that the field, can not be used in the filters or query but its value can fetch | `true` or non present |
 
+> **Dates are expressed in milliseconds since Epoch.**
 
 ### 2. list
+
+This method can be used to get a list of entity items.
+
+It accepts the following paramaters:
+
+| Parameter | description | values |
+| --------- | ----------- | ------ |
+| limit | limits the number of items to return. The default is `10` and the maximum `1000`. | `1` to `1000` |
+| offset | indicates the offset from which to return the items. It can be used to create a pager. The default is `0`. | >= `0` |
+| fields | indicates wich fields to `include` or `exclude` for each item. It can be used to get a partial field. The default field depends on the entity type. See below for more details. | array of field names to `include` or `exclude` |
+| query | this is the main parameter to search for particular items. It's a classic search query which accepts an extended syntax. The default is no query. See below for more details. | object |
+| filter | this allows to filter the results, it can be a simple filter or a logical combination of filters. The default filter depends on the entity type is overriden when the filter parameter is present. | object |
