@@ -1,5 +1,7 @@
 ---
+published: true
 layout: index
+
 ---
 
 #Test Markdown Site with Prose.io
@@ -11,3 +13,7 @@ layout: index
 	"bidule" : "machin"
 }
 ```
+
+##Second section
+
+This a **test**
