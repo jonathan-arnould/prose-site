@@ -1,4 +1,10 @@
 ---
+published: true
+layout: index
+
+---
+
+---
 layout: index
 ---
 
@@ -189,3 +195,32 @@ It accepts the following paramaters:
 | query | this is the main parameter to search for particular items. It's a classic search query which accepts an extended syntax. The default is no query. See below for more details. | object |
 | filter | this allows to filter the results, it can be a simple filter or a logical combination of filters. The default filter depends on the entity type is overriden when the filter parameter is present. | object |
 
+Example:
+
+```json
+curl -XGET 'http://api.rwdev.org/v0/report/list' -d '{
+  "offset" : 0,
+  "limit" : 3,
+  "fields" : {
+    "include" : ["title", "primary_country"],
+    "exlcude" : ["primary_country.shortname"]
+  },
+  "query" : {
+    "value" : "syria humanitarian",
+    "fields" : ["primary_country^5", "title^2", "body"],
+    "operator" : "and"
+  },
+  "filter" : {
+    "conditions" : [
+      {
+        "field" : "status",
+        "value" : 1
+      },
+      {
+        "field": "headline"
+      }
+    ],
+    "operator" : "and"
+  }
+}'
+```
