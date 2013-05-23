@@ -14,9 +14,9 @@ This the documentation for the ReliefWeb API.
 
 The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the latest headlines, job offers or disasters.
 
-- [versions](#version)
-- [entities](#entities)
-- [methods](#methods)
+- [versions](#Versions)
+- [entities](#Entities)
+- [methods](#Methods)
 
 
 ## Versions
